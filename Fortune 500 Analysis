@@ -1,0 +1,32 @@
+-- Write at least 5 queries. Do each of the following at least once:
+-- Use WHERE with one of the following to filter the data in an interesting way. AND, OR, IN, or NOT IN 
+-- Write a calculation and use an alias to name it.
+-- Categorize the data in a new way using a CASE expression.
+-- Use a HAVING clause to determine something interesting about the data by group.
+-- It may help to use an aggregate function like AVG, SUM, COUNT, MAX, or MIN
+
+SELECT company_id, company_name
+FROM fortune_companies 
+WHERE industry ="Technology" OR industry = "Retail";
+
+SELECT company_id, company_name
+FROM fortune_companies
+WHERE industry NOT IN ("Technology", "Retail");
+
+SELECT company_name,
+revenue / employees AS revenue_per_employee
+FROM fortune_companies;
+
+SELECT company_name
+, revenue
+, CASE
+WHEN revenue >= 300 THEN "Great Sales"
+ELSE "Needs Improvement"
+END AS sales_progress
+FROM fortune_companies;
+
+SELECT company_name
+, SUM(revenue) AS total_revenue
+FROM fortune_companies
+GROUP BY Industry
+HAVING SUM(revenue) > 100;
