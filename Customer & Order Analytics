@@ -45,3 +45,45 @@ ON FEB.orderid = cust.order_id
 WHERE Feb.Quantity > 2
 AND length(orderid) = 6
 AND orderid <> 'Order ID';
+
+Practice 1
+We'll start with this query:
+
+SELECT employee_ID
+FROM employees
+
+Which of the following lines of code will complete the query listed above so that it only retrieves employee IDs (employee_ID)) that:
+
+1. Start with ‘14’
+2. Have a single character after ‘14’
+3. End with ‘9’
+
+Wildcard Practice 1
+Example	Code
+A	WHERE employee_ID = '14_9'
+B	WHERE employee_ID LIKE '14_9'
+C	WHERE employee_ID LIKE 14_9
+D	WHERE employee_ID LIKE '14'_'9'
+
+Answer: B) WHERE employee_ID LIKE '14_9'
+
+Practice 2
+Let’s say we need to find all orderIDs in the MarSales table from the BIT_DB database where the orderID has the characters ‘16’ in the beginning, followed by one unknown character, then a ‘0’, and any number of characters for the rest.
+
+SELECT orderID
+FROM BIT_DB.MarSales
+
+Which of the following lines of code will complete the query listed above so that it only retrieves employee IDs (employee_ID)) that:
+
+Start with ‘16’
+Have a single character after ‘16’
+Followed by ‘0’
+And any number of characters in the last position
+Wildcard Practice 2
+Example	Code
+A	WHERE orderID LIKE '16%0_'
+B	WHERE orderID LIKE '16%0%'
+C	WHERE orderID LIKE '160_%'
+D	WHERE orderID LIKE '16_0%'
+
+Answer: D) WHERE orderID LIKE '16_0%'
